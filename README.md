@@ -12,5 +12,6 @@ Scripts used for data analysis are in `scripts/` folder:
 - Analysis of introns w/respect to read quality: `intron_chain_q.py` and `intron_splice_quality.py`
 
 Scripts located in the root directory:
-- Assign reads to isoforms and correct spliced alignemtns: `correct_spliced_alignments.py`
+- Assign reads to isoforms: `assign_reads_to_isoforms.py`
+- Correct spliced alignments: `correct_spliced_alignments.py`
 - GTF to gffutils database: `gtf2db.py`
