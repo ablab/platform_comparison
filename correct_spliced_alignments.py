@@ -132,7 +132,7 @@ def set_data_dependent_options(args):
     if args.matching_strategy is None:
         args.matching_strategy = matching_strategies[args.data_type]
 
-    splice_correction_strategies = {PACBIO_CCS_DATA: "default_pacbio", NANOPORE_DATA: "default_ont"}
+    splice_correction_strategies = {PACBIO_CCS_DATA: "default_pacbio", NANOPORE_DATA: "conservative_ont"}
     if args.splice_correction_strategy is None:
         args.splice_correction_strategy = splice_correction_strategies[args.data_type]
 
