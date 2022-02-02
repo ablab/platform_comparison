@@ -1,7 +1,6 @@
 # Scripts for PacBio vs ONT platform comparison paper
 
 Scripts used for data analysis are in `scripts/` folder:
-- Poly-A tails analysis: `polya_tails.py` 
 - Aligned lengths analysis: `aligned_lengths.py` 
 - Aligned lengths analysis (Smith-Waterman alignment): `sw_alignment.py` 
 - Errors analysis:  `compare_error_rate.py` 
@@ -14,4 +13,4 @@ Scripts used for data analysis are in `scripts/` folder:
 Scripts located in the root directory:
 - Assign reads to isoforms: `assign_reads_to_isoforms.py`
 - Correct spliced alignments: `correct_spliced_alignments.py`
-- GTF to gffutils database: `gtf2db.py`
+- Convert GTF to gffutils database: `gtf2db.py`
