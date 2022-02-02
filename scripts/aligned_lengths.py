@@ -10,14 +10,14 @@ tsv_file = sys.argv[3]
 infile = pysam.AlignmentFile(samfile_pb, "r", check_sq=False)
 len_dict = dict()
 for aln in infile:
-    if aln.is_secondary:continue
+    if aln.is_secondary or aln.is_supplementary:continue
     if not aln.reference_name: continue
     read_name = aln.query_name
     len_dict[read_name] = aln.query_alignment_length
 
 infile= pysam.AlignmentFile(samfile_ont, "r", check_sq=False)
 for aln in infile:
-    if aln.is_secondary:continue
+    if aln.is_secondary or aln.is_supplementary:continue
     if not aln.reference_name: continue
     read_name = aln.query_name
     len_dict[read_name] = aln.query_alignment_length

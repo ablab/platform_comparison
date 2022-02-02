@@ -2,7 +2,6 @@ import sys
 from collections import defaultdict
 import pysam
 from Bio import Seq
-from Bio import SeqIO
 
 bam_file_pb = sys.argv[1]
 bam_file_ont = sys.argv[2]
@@ -217,7 +216,6 @@ with open(tsv_file) as f:
                 polya_agree += 1
             elif read_polya_ont[ont_read] and read_polya_pb[pb_read] != read_polya_ont[ont_read]:
                 polya_disagree += 1
-#print(total_tss_pairs, tss_assigned_pb, tss_assigned_ont)
-#print(total_polya_pairs, polya_assigned_pb, polya_assigned_ont)
+
 print("TSS. Agree: ", tss_agree, ", PB only: ", tss_pb,  ", ONT only: ", tss_ont, ", disagree: ", tss_disagree)
 print("PolyA. Agree: ", polya_agree,  ", PB only: ",polya_pb,  ", ONT only: ", polya_ont,  ", disagree: ", polya_disagree)

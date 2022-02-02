@@ -153,19 +153,19 @@ def intron_chain_stat(read_pairs, bam_records1, bam_records2, gene_db, params):
         logger.debug("Second read exons: " + str(exons2))
         gene_info = GeneInfo(gene_list, gene_db)
         logger.debug("Gene introns: " + str(gene_info.intron_profiles.features))
-        #first_annotated = check_annotated_introns(exons1, gene_info, params)
-        #second_annotated = check_annotated_introns(exons2, gene_info, params)
+        first_annotated = check_annotated_introns(exons1, gene_info, params)
+        second_annotated = check_annotated_introns(exons2, gene_info, params)
         #logger.debug("First annotated %r, second annotated %r" % (first_annotated, second_annotated))
         event_type = compare_intron_chains(exons1, exons2, gene_info, params)
         if event_type == MatchType.inconsistent: print(read_pair[0],read_pair[1])
-        #gene = len([g for g in gene_info.gene_db_list if g.featuretype=='gene'])
-        #transcripts = len([g for g in gene_info.gene_db_list if g.featuretype=='transcript'])
+        gene = len([g for g in gene_info.gene_db_list if g.featuretype=='gene'])
+        transcripts = len([g for g in gene_info.gene_db_list if g.featuretype=='transcript'])
         #if event_type == MatchType.inconsistent and gene == 1:
-        #print(event_type, gene, transcripts, len(gene_info.intron_profiles.features))
-        #stat_map[(event_type, first_annotated, second_annotated)] += 1
+        # print(event_type, gene, transcripts, len(gene_info.intron_profiles.features))
+        stat_map[(event_type, first_annotated, second_annotated)] += 1
         counter += 1
-        #if counter % 1000 == 0:
-        #    logger.info("Processed %d read pairs (%0.1f%%)" % (counter, 100 * counter / len(read_pairs)))
+        if counter % 1000 == 0:
+            logger.info("Processed %d read pairs (%0.1f%%)" % (counter, 100 * counter / len(read_pairs)))
 
     return stat_map
 
